@@ -68,3 +68,35 @@ h1, h2, h3, h4, h5, h6 {
   scroll-margin-block: 5ex;
 }
 /* ================= RESET STYLES END ================= */
+
+/* ================= VARIABLES START ================= */
+/* LIGHT THEME (Default) */
+:root, .light {
+  --md-sys-color-primary: rgb(54 94 157);
+  --md-sys-color-on-primary: rgb(255 255 255);
+  --md-sys-color-primary-container: rgb(118 156 223);
+  --md-sys-color-on-primary-container: rgb(0 50 106);
+  --md-sys-color-secondary: rgb(81 95 121);
+  --md-sys-color-surface: rgb(249 249 255);
+  --md-sys-color-on-surface: rgb(26 28 32);
+  --md-sys-color-surface-container: rgb(238 237 243);
+  --md-sys-color-outline: rgb(115 119 129);
+  --md-sys-color-error: rgb(186 26 26);
+}
+
+/* DARK THEME (Automatic switch) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: rgb(170 199 255);
+    --md-sys-color-on-primary: rgb(0 47 100);
+    --md-sys-color-primary-container: rgb(118 156 223);
+    --md-sys-color-on-primary-container: rgb(0 50 106);
+    --md-sys-color-secondary: rgb(185 199 229);
+    --md-sys-color-surface: rgb(18 19 23);
+    --md-sys-color-on-surface: rgb(226 226 232);
+    --md-sys-color-surface-container: rgb(30 32 36);
+    --md-sys-color-outline: rgb(141 144 155);
+    --md-sys-color-error: rgb(255 180 171);
+  }
+}
+/* ================= VARIABLES END ================= */

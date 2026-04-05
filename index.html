@@ -11,64 +11,64 @@
 </head>
 <body>
   <!-- ================= HEADER ================= -->
-  <header>
-    <img class="logo" src="assets/logo.svg" alt="logo image">
-    <h1>City Weather Atlas</h1>
-    <p class="subtitle">Real-time weather across all climate zones</p>
+  <header class="l-header">
+    <img class="l-header__logo" src="assets/logo.svg" alt="logo image">
+    <h1 class="l-header__title">City Weather Atlas</h1>
+    <p class="l-header__subtitle">Real-time weather across all climate zones</p>
   </header>
 
   <!-- ================= MAIN CONTENT ================= -->
-  <main>
+  <main class="l-main">
     <!-- ================= ABOUT ================= -->
-    <section>
-      <h2>About This Dashboard</h2>
-      <p>
+    <section class="about-section">
+      <h2 class="about-section__title">About This Dashboard</h2>
+      <p class="about-section__content">
         This dashboard provides real-time weather data for selected cities around the world,
         along with educational insights into different climate zones.
       </p>
     </section>
     <!-- ===== WEATHER SECTION ===== -->
-    <section class="weather">
-      <h2>Current Weather</h2>
+    <section class="weather-section">
+      <h2 class="weather-section__title">Current Weather</h2>
 
       <!-- Container for dynamically generated cards -->
-      <div id="weather-container">
+      <div class="weather-section__container js-weather-container">
         <!-- JS will inject weather cards here -->
       </div>
     </section>
   </main>
 
   <!-- ================= ASIDE (SUPPORTING CONTENT) ================= -->
-  <aside>
-    <h2>Climate Zones</h2>
-    <article>
-      <h3>Tropical</h3>
-      <p>Hot and humid year-round with frequent rainfall.</p>
+  <aside class="l-aside">
+    <h2 class="l-aside__title">Climate Zones</h2>
+    <article class="l-aside__zone">
+      <h3 class="l-aside__zone-name">Tropical</h3>
+      <p class="l-aside__zone-description">Hot and humid year-round with frequent rainfall.</p>
     </article>
 
-    <article>
-      <h3>Temperate</h3>
-      <p>Moderate temperatures with distinct seasons.</p>
+    <article class="l-aside__zone">
+      <h3 class="l-aside__zone-name">Temperate</h3>
+      <p class="l-aside__zone-description">Moderate temperatures with distinct seasons.</p>
     </article>
 
-    <article>
-      <h3>Arid</h3>
-      <p>Dry climate with little rainfall and large temperature variations.</p>
+    <article class="l-aside__zone">
+      <h3 class="l-aside__zone-name">Arid</h3>
+      <p class="l-aside__zone-description">Dry climate with little rainfall and large temperature variations.</p>
     </article>
 
-    <article>
-      <h3>Polar</h3>
-      <p>Extremely cold temperatures with ice and snow most of the year.</p>
+    <article class="l-aside__zone">
+      <h3 class="l-aside__zone-name">Polar</h3>
+      <p class="l-aside__zone-description">Extremely cold temperatures with ice and snow most of the year.</p>
     </article>
   </aside>
 
   <!-- ================= FOOTER ================= -->
-  <footer>
-    <span>&copy; 2026 City Weather Atlas. All rights reserved.</span>
-    <span> | </span>
-    <span>Odysseas Filippidis</span>
-    <span> | </span>
-    <span>Submission date: <time datetime="2026-04-05">April 5, 2026</time></span>
+  <footer class="l-footer">
+    <span class="l-footer__copyright">&copy; 2026 City Weather Atlas. All rights reserved.</span>
+    <span class="l-footer__separator"> | </span>
+    <span class="l-footer__author">Odysseas Filippidis</span>
+    <span class="l-footer__separator"> | </span>
+    <span class="l-footer__submission-date">Submission date: <time datetime="2026-04-05">April 5, 2026</time></span>
   </footer>
 </body>
 </html>

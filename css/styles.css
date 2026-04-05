@@ -70,6 +70,13 @@ h1, h2, h3, h4, h5, h6 {
 /* ================= RESET STYLES END ================= */
 
 /* ================= VARIABLES START ================= */
+:root {
+  --font-size-base: clamp(1rem, 0.53vw + 0.87rem, 1.2rem);
+  --font-size-md: clamp(1.2rem, 0.64vw + 1.04rem, 1.44rem);
+  --font-size-xl: clamp(1.73rem, 0.92vw + 1.5rem, 2.07rem);
+  --font-size-xxxl: clamp(2.49rem, 1.33vw + 2.16rem, 2.99rem);
+}
+
 /* MATERIAL 3 BASELINE TOKENS */
 /* LIGHT THEME (Default) */
 :root, .light {

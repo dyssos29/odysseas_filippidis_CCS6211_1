@@ -70,6 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ================= RESET STYLES END ================= */
 
 /* ================= VARIABLES START ================= */
+/* MATERIAL 3 BASELINE TOKENS */
 /* LIGHT THEME (Default) */
 :root, .light {
   --md-sys-color-primary: rgb(54 94 157);
@@ -100,3 +101,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 /* ================= VARIABLES END ================= */
+
+/* ================= BASE STYLES START ================= */
+body {
+  padding: 1rem;
+  max-width: 90rem;       /* Constrain content on large screens (~1440px) */
+  margin: auto;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: system-ui, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================= BASE STYLES END ================= */
+

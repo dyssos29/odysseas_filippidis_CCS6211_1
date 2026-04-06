@@ -184,6 +184,9 @@ h1, h2, h3 {
 .l-aside {
   background-color: var(--md-sys-color-surface-container);
   padding: 1rem 0.5rem;
+}
+
+.l-aside__content {
   display: grid;
   grid-template-columns: minmax(10rem, 1fr);
 }
@@ -232,6 +235,10 @@ h1, h2, h3 {
 /* Tablet devices (sm --> ≥568px) */
 @media only screen and (min-width: 35.5em) {
   .weather-section__container {
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr);
+  }
+
+  .l-aside__content {
     grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr);
   }
 }

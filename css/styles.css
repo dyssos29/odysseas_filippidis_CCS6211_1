@@ -231,6 +231,7 @@ h1, h2, h3 {
   font-weight: 800;
 }
 /* ================= LAYOUT END ================= */
+
 /* ================= RESPONSIVENESS START ================= */
 /* Tablet devices (sm --> ≥568px) */
 @media only screen and (min-width: 35.5em) {
@@ -276,7 +277,7 @@ h1, h2, h3 {
   }
 
   .weather-section__container {
-    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr);
+    grid-template-columns: minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(15rem, 1fr);
   }
 
   .city-card {
@@ -292,7 +293,7 @@ h1, h2, h3 {
   }
 
   .l-aside__content {
-    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr);
+    grid-template-columns: minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(15rem, 1fr);
   }
 
   .l-aside__zone {
@@ -300,13 +301,24 @@ h1, h2, h3 {
   }
 }
 
-/* Large (desktop) devices (lg --> ≥1024px) */
-@media only screen and (min-width: 64em) {
-
-}
-
 /* XLarge devices (xl --> ≥1280px) */
 @media only screen and (min-width: 80em) {
+  .l-main {
+    display: contents;
+  }
 
+  .l-main-grid {
+    display: grid;
+    grid-template-columns: minmax(20rem, 3fr) minmax(20rem, 1fr);
+    gap: 2rem;
+  }
+
+  .about-section {
+    grid-column: 1 / span 2;
+  }
+
+  .l-aside__content {
+    grid-template-columns: minmax(20rem, 1fr);
+  }
 }
 /* ================= RESPONSIVENESS END ================= */

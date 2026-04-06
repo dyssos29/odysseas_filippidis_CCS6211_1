@@ -141,6 +141,18 @@ h1, h2, h3 {
   line-height: 1.2;
   flex-basis: 100%;
 }
+
+.about-section__title,
+.weather-section__title,
+.l-aside__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.l-aside__zone-name {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
 /* ================= TYPOGRAPHY END ================= */
 
 /* ================= LAYOUT START ================= */

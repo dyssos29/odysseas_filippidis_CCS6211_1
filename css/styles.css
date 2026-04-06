@@ -173,6 +173,10 @@ h1, h2, h3 {
   width: 3rem;
 }
 
+.l-main {
+  padding: 1rem 0.5rem;
+}
+
 .l-aside {
   background-color: var(--md-sys-color-surface-container);
   padding: 1rem 0.5rem;

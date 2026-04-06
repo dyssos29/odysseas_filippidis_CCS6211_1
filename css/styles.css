@@ -177,6 +177,10 @@ h1, h2, h3 {
   padding: 1rem 0.5rem;
 }
 
+.about-section {
+  margin-bottom: 1rem;
+}
+
 .l-aside {
   background-color: var(--md-sys-color-surface-container);
   padding: 1rem 0.5rem;
@@ -197,6 +201,14 @@ h1, h2, h3 {
   padding: 3rem 0;
 }
 
+.weather-section__title {
+  margin-bottom: 0.5rem;
+}
+
+.weather-section__container {
+  display: grid;
+  gap: 1rem;
+}
 .city-card {
   background-color: var(--md-sys-color-surface-container);
   border: 1px solid var(--md-sys-color-outline);

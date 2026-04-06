@@ -188,4 +188,8 @@ h1, h2, h3 {
   padding: 0.5rem 0.5rem;
 }
 
+.l-footer {
+  text-align: center;
+  padding: 3rem 0;
+}
 /* ================= LAYOUT END ================= */

@@ -159,14 +159,14 @@ h1, h2, h3 {
 .l-header {
   background-color: var(--md-sys-color-surface-container);
   border-bottom: 1px solid var(--md-sys-color-outline);
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 6fr;
   align-items: center;
   padding: 1rem 0.5rem;
 }
 
 .l-header__subtitle {
-  flex-basis: 100%;
+  grid-column: 1 / span 2;
 }
 
 .l-header__logo {
@@ -234,6 +234,15 @@ h1, h2, h3 {
 /* ================= RESPONSIVENESS START ================= */
 /* Tablet devices (sm --> ≥568px) */
 @media only screen and (min-width: 35.5em) {
+  .l-header__logo {
+    width: 5rem;
+    grid-row: 1 / span 2;
+  }
+
+  .l-header__subtitle {
+    grid-column: 2 / span 1;
+  }
+
   .weather-section__container {
     grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr);
   }

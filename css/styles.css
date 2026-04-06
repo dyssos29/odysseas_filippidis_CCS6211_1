@@ -184,6 +184,8 @@ h1, h2, h3 {
 .l-aside {
   background-color: var(--md-sys-color-surface-container);
   padding: 1rem 0.5rem;
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr);
 }
 
 .l-aside__title {
@@ -207,8 +209,10 @@ h1, h2, h3 {
 
 .weather-section__container {
   display: grid;
+  grid-template-columns: minmax(10rem, 1fr);
   gap: 1rem;
 }
+
 .city-card {
   background-color: var(--md-sys-color-surface-container);
   border: 1px solid var(--md-sys-color-outline);
@@ -224,3 +228,26 @@ h1, h2, h3 {
   font-weight: 800;
 }
 /* ================= LAYOUT END ================= */
+/* ================= RESPONSIVENESS START ================= */
+/* Tablet devices (sm --> ≥568px) */
+@media only screen and (min-width: 35.5em) {
+  .weather-section__container {
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr);
+  }
+}
+
+/* Medium (laptop) devices (md --> ≥768px) */
+@media only screen and (min-width: 48em) {
+
+}
+
+/* Large (desktop) devices (lg --> ≥1024px) */
+@media only screen and (min-width: 64em) {
+
+}
+
+/* XLarge devices (xl --> ≥1280px) */
+@media only screen and (min-width: 80em) {
+
+}
+/* ================= RESPONSIVENESS END ================= */

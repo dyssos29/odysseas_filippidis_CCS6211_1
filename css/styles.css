@@ -303,6 +303,10 @@ h1, h2, h3 {
 
 /* XLarge devices (xl --> ≥1280px) */
 @media only screen and (min-width: 80em) {
+  .l-header__logo {
+    width: 7rem;
+  }
+  
   .l-main {
     /* This allows the element's children to appear as if they were direct children of the element's parent */
     display: contents; 

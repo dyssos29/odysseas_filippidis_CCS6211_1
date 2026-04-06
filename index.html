@@ -24,123 +24,127 @@
     <p class="l-header__subtitle">Real-time weather across all climate zones</p>
   </header>
 
-  <!-- ================= MAIN CONTENT ================= -->
-  <main class="l-main">
-    <!-- ================= ABOUT ================= -->
-    <section class="about-section">
-      <h2 class="about-section__title">About This Dashboard</h2>
-      <p class="about-section__content">
-        This dashboard provides real-time weather data for selected cities around the world,
-        along with educational insights into different climate zones.
-      </p>
-    </section>
-    <!-- ===== WEATHER SECTION ===== -->
-    <section class="weather-section">
-      <h2 class="weather-section__title">Current Weather</h2>
+  <div class="l-main-grid">
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="l-main">
+      <!-- ================= ABOUT ================= -->
+      <section class="about-section">
+        <h2 class="about-section__title">About This Dashboard</h2>
+        <p class="about-section__content">
+          This dashboard provides real-time weather data for selected cities around the world,
+          along with educational insights into different climate zones.
+        </p>
+      </section>
+      <!-- ===== WEATHER SECTION ===== -->
+      <section class="weather-section">
+        <h2 class="weather-section__title">Current Weather</h2>
 
-      <!-- Container for dynamically generated cards -->
-      <div class="weather-section__container js-weather-container">
-        <!-- JS will inject weather cards here -->
-        <!-- Examples of a generated City Cards -->
-        <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-          <div class="city-card__header">
-            <h3 class="city-card__city">Thessaloniki</h3>
-            <p class="city-card__country">Greece</p>
-          </div>
-          
-          <div class="city-card__body">
-            <p class="city-card__temp">24°C</p>
-            <p class="city-card__condition">Clear Sky</p>
-            <p class="city-card__wind">Wind: 12 km/h</p>
-          </div>
+        <!-- Container for dynamically generated cards -->
+        <div class="weather-section__container js-weather-container">
+          <!-- JS will inject weather cards here -->
+          <!-- Examples of a generated City Cards -->
+          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
+            <div class="city-card__header">
+              <h3 class="city-card__city">Thessaloniki</h3>
+              <p class="city-card__country">Greece</p>
+            </div>
+            
+            <div class="city-card__body">
+              <p class="city-card__temp">24°C</p>
+              <p class="city-card__condition">Clear Sky</p>
+              <p class="city-card__wind">Wind: 12 km/h</p>
+            </div>
+          </article>
+          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
+            <div class="city-card__header">
+              <h3 class="city-card__city">Thessaloniki</h3>
+              <p class="city-card__country">Greece</p>
+            </div>
+            
+            <div class="city-card__body">
+              <p class="city-card__temp">24°C</p>
+              <p class="city-card__condition">Clear Sky</p>
+              <p class="city-card__wind">Wind: 12 km/h</p>
+            </div>
+          </article>
+          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
+            <div class="city-card__header">
+              <h3 class="city-card__city">Thessaloniki</h3>
+              <p class="city-card__country">Greece</p>
+            </div>
+            
+            <div class="city-card__body">
+              <p class="city-card__temp">24°C</p>
+              <p class="city-card__condition">Clear Sky</p>
+              <p class="city-card__wind">Wind: 12 km/h</p>
+            </div>
+          </article>
+          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
+            <div class="city-card__header">
+              <h3 class="city-card__city">Thessaloniki</h3>
+              <p class="city-card__country">Greece</p>
+            </div>
+            
+            <div class="city-card__body">
+              <p class="city-card__temp">24°C</p>
+              <p class="city-card__condition">Clear Sky</p>
+              <p class="city-card__wind">Wind: 12 km/h</p>
+            </div>
+          </article>
+          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
+            <div class="city-card__header">
+              <h3 class="city-card__city">Thessaloniki</h3>
+              <p class="city-card__country">Greece</p>
+            </div>
+            
+            <div class="city-card__body">
+              <p class="city-card__temp">24°C</p>
+              <p class="city-card__condition">Clear Sky</p>
+              <p class="city-card__wind">Wind: 12 km/h</p>
+            </div>
+          </article>
+          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
+            <div class="city-card__header">
+              <h3 class="city-card__city">Thessaloniki</h3>
+              <p class="city-card__country">Greece</p>
+            </div>
+            
+            <div class="city-card__body">
+              <p class="city-card__temp">24°C</p>
+              <p class="city-card__condition">Clear Sky</p>
+              <p class="city-card__wind">Wind: 12 km/h</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- ================= ASIDE (SUPPORTING CONTENT) ================= -->
+    <aside class="l-aside">
+      <h2 class="l-aside__title">Climate Zones</h2>
+      <div class="l-aside__content">
+        <article class="l-aside__zone">
+          <h3 class="l-aside__zone-name">Tropical</h3>
+          <p class="l-aside__zone-description">This climate is  located near the equator. It is hot and humid year-round with frequent rainfall.</p>
         </article>
-        <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-          <div class="city-card__header">
-            <h3 class="city-card__city">Thessaloniki</h3>
-            <p class="city-card__country">Greece</p>
-          </div>
-          
-          <div class="city-card__body">
-            <p class="city-card__temp">24°C</p>
-            <p class="city-card__condition">Clear Sky</p>
-            <p class="city-card__wind">Wind: 12 km/h</p>
-          </div>
+
+        <article class="l-aside__zone">
+          <h3 class="l-aside__zone-name">Temperate</h3>
+          <p class="l-aside__zone-description">This climate is located south of the arctic area at the North Pole and north of the arctic area at the South Pole. It has moderate temperatures with distinct seasons.</p>
         </article>
-        <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-          <div class="city-card__header">
-            <h3 class="city-card__city">Thessaloniki</h3>
-            <p class="city-card__country">Greece</p>
-          </div>
-          
-          <div class="city-card__body">
-            <p class="city-card__temp">24°C</p>
-            <p class="city-card__condition">Clear Sky</p>
-            <p class="city-card__wind">Wind: 12 km/h</p>
-          </div>
+
+        <article class="l-aside__zone">
+          <h3 class="l-aside__zone-name">Subtropical</h3>
+          <p class="l-aside__zone-description">This climate is located in regions between the tropics and the temperate zones. It is a bit warmer than the temperate climate and has distinct wet and dry seasons.</p>
         </article>
-        <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-          <div class="city-card__header">
-            <h3 class="city-card__city">Thessaloniki</h3>
-            <p class="city-card__country">Greece</p>
-          </div>
-          
-          <div class="city-card__body">
-            <p class="city-card__temp">24°C</p>
-            <p class="city-card__condition">Clear Sky</p>
-            <p class="city-card__wind">Wind: 12 km/h</p>
-          </div>
-        </article>
-        <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-          <div class="city-card__header">
-            <h3 class="city-card__city">Thessaloniki</h3>
-            <p class="city-card__country">Greece</p>
-          </div>
-          
-          <div class="city-card__body">
-            <p class="city-card__temp">24°C</p>
-            <p class="city-card__condition">Clear Sky</p>
-            <p class="city-card__wind">Wind: 12 km/h</p>
-          </div>
-        </article>
-        <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-          <div class="city-card__header">
-            <h3 class="city-card__city">Thessaloniki</h3>
-            <p class="city-card__country">Greece</p>
-          </div>
-          
-          <div class="city-card__body">
-            <p class="city-card__temp">24°C</p>
-            <p class="city-card__condition">Clear Sky</p>
-            <p class="city-card__wind">Wind: 12 km/h</p>
-          </div>
+
+        <article class="l-aside__zone">
+          <h3 class="l-aside__zone-name">Arctic</h3>
+          <p class="l-aside__zone-description">This climate is located at the poles. It has extremely cold temperatures with ice and snow most of the year. The ground there is frozen all year round, resulting in a phenomenon known as permafrost.</p>
         </article>
       </div>
-    </section>
-  </main>
-
-  <!-- ================= ASIDE (SUPPORTING CONTENT) ================= -->
-  <aside class="l-aside">
-    <h2 class="l-aside__title">Climate Zones</h2>
-    <article class="l-aside__zone">
-      <h3 class="l-aside__zone-name">Tropical</h3>
-      <p class="l-aside__zone-description">This climate is  located near the equator. It is hot and humid year-round with frequent rainfall.</p>
-    </article>
-
-    <article class="l-aside__zone">
-      <h3 class="l-aside__zone-name">Temperate</h3>
-      <p class="l-aside__zone-description">This climate is located south of the arctic area at the North Pole and north of the arctic area at the South Pole. It has moderate temperatures with distinct seasons.</p>
-    </article>
-
-    <article class="l-aside__zone">
-      <h3 class="l-aside__zone-name">Subtropical</h3>
-      <p class="l-aside__zone-description">This climate is located in regions between the tropics and the temperate zones. It is a bit warmer than the temperate climate and has distinct wet and dry seasons.</p>
-    </article>
-
-    <article class="l-aside__zone">
-      <h3 class="l-aside__zone-name">Arctic</h3>
-      <p class="l-aside__zone-description">This climate is located at the poles. It has extremely cold temperatures with ice and snow most of the year. The ground there is frozen all year round, resulting in a phenomenon known as permafrost.</p>
-    </article>
-  </aside>
+    </aside>
+  </div>
 
   <!-- ================= FOOTER ================= -->
   <footer class="l-footer">

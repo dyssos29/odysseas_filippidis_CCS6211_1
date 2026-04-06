@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    /* Default (Light Mode): Dark blue background, White letter */
+    .bg { fill: #002F64; transition: fill 0.3s; }
+    .letter { fill: #769CDF; font-family: system-ui; font-weight: bold; font-size: 70px; }
+
+    /* Dark Mode: Light blue background, Dark blue letter */
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #769CDF; }
+      .letter { fill: #002F64; }
+    }
+  </style>
+  <circle class="bg" cx="50" cy="50" r="50" />
+  <text class="letter" x="50%" y="50%" text-anchor="middle" dominant-baseline="central">W</text>
+</svg>

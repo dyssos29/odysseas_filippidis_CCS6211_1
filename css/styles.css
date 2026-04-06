@@ -277,7 +277,7 @@ h1, h2, h3 {
   }
 
   .weather-section__container {
-    grid-template-columns: minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(15rem, 1fr);
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr);
   }
 
   .city-card {
@@ -312,10 +312,13 @@ h1, h2, h3 {
     display: grid;
     grid-template-columns: minmax(20rem, 3fr) minmax(20rem, 1fr);
     gap: 2rem;
+    max-width: 90%;
+    margin: auto;
   }
 
   .about-section {
     grid-column: 1 / span 2;
+    margin-top: 2rem;
   }
 
   .l-aside__content {

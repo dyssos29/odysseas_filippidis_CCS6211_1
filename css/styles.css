@@ -254,7 +254,50 @@ h1, h2, h3 {
 
 /* Medium (laptop) devices (md --> ≥768px) */
 @media only screen and (min-width: 48em) {
+  .l-header {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
 
+  .l-main {
+    padding: 2rem 2.5rem;
+  }
+
+  .about-section {
+    margin-bottom: 2rem;
+  }
+
+  .about-section__title {
+    margin-bottom: 0.5rem;
+  }
+
+  .weather-section__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .weather-section__container {
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr);
+  }
+
+  .city-card {
+    padding: 2rem;
+  }
+
+  .l-aside {
+    padding: 2rem 1.5rem;
+  }
+
+  .l-aside__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .l-aside__content {
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr);
+  }
+
+  .l-aside__zone {
+    padding: 1.5rem 1.5rem;
+  }
 }
 
 /* Large (desktop) devices (lg --> ≥1024px) */

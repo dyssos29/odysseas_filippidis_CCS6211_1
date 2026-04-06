@@ -293,7 +293,7 @@ h1, h2, h3 {
   }
 
   .l-aside__content {
-    grid-template-columns: minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(15rem, 1fr) minmax(15rem, 1fr);
+    grid-template-columns: minmax(0rem, 1fr) minmax(0rem, 1fr) minmax(0rem, 1fr) minmax(0rem, 1fr);
   }
 
   .l-aside__zone {
@@ -304,7 +304,8 @@ h1, h2, h3 {
 /* XLarge devices (xl --> ≥1280px) */
 @media only screen and (min-width: 80em) {
   .l-main {
-    display: contents;
+    /* This allows the element's children to appear as if they were direct children of the element's parent */
+    display: contents; 
   }
 
   .l-main-grid {
@@ -318,7 +319,7 @@ h1, h2, h3 {
   }
 
   .l-aside__content {
-    grid-template-columns: minmax(20rem, 1fr);
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 /* ================= RESPONSIVENESS END ================= */

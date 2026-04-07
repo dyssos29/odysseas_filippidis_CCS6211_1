@@ -1,7 +1,8 @@
 import {
     makeHttpRequest,
     loadCities,
-    processResults
+    processResults,
+    createLoadingSkeletons
 } from './utility.js';
 
 const fetchWeather = async baseUrl => {
@@ -26,4 +27,5 @@ const fetchWeather = async baseUrl => {
   processResults(results);
 }
 
+createLoadingSkeletons();
 fetchWeather('https://api.test-open-meteo.com/v1/forecast');

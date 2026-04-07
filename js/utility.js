@@ -24,7 +24,7 @@ export const loadCities = async () => {
 
 export const processResults = results => {
   const container = document.querySelector('.js-weather-container');
-  container.innerHTML = '';
+  //container.innerHTML = '';
   results.forEach(result => {
     if (result.status === 'fulfilled') {
       const data = result.value;
@@ -32,6 +32,15 @@ export const processResults = results => {
     } else {
       console.error("Failed to load city:", result.reason);
     }
+  });
+}
+
+export const createLoadingSkeletons = () => {
+  const container = document.querySelector('.js-weather-container');
+  const cardTemplate = document.getElementById('js-city-card-template');
+  
+  Array.from({ length: 6 }).forEach(() => {
+    container.append(cardTemplate.content.cloneNode(true));
   });
 }
 

@@ -1,6 +1,9 @@
-export const makeHttpRequest = async (url, options = null) => {
+export const makeHttpRequest = async (url, urlParams = null, options = null) => {
+  const urlSearchParamsObj = urlParams ? new URLSearchParams(urlParams) : null;
+  const searchParamsStr = urlSearchParamsObj ? `?${urlSearchParamsObj}` : '';
+
   try {
-    const response = await fetch(url, options);
+    const response = await fetch(url + searchParamsStr, options);
     if (response.ok) {
       return response;
     }

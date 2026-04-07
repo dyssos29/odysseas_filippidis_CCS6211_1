@@ -109,6 +109,23 @@ h1, h2, h3, h4, h5, h6 {
 }
 /* ================= VARIABLES END ================= */
 
+/* ================= ANIMATIONS START ================= */
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgb(0 47 100);
+  }
+  100% {
+    background-color: rgb(170 199 255);
+  }
+}
+
+@keyframes skeleton-container {
+  to {
+    transform:translateX(100%);
+  }
+}
+/* ================= ANIMATIONS END ================= */
+
 /* ================= BASE STYLES START ================= */
 body {
   padding: 1rem;
@@ -330,3 +347,55 @@ h1, h2, h3 {
   }
 }
 /* ================= RESPONSIVENESS END ================= */
+
+/* ================= SKELETON START ================= */
+.skeleton {
+  animation: skeleton-loading 1.2s linear infinite alternate;
+}
+
+.skeleton-text {
+  height: 1.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-temperature {
+  width: 40%;
+  height: 3.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text-short {
+  width: 30%;
+}
+
+.skeleton-text-medium {
+  width: 50%;
+}
+
+.skeleton-text-long {
+  width: 80%;
+}
+
+.city-card:has(.skeleton) {
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card:has(.skeleton)::after{
+  content:"";
+  position:absolute;
+  inset:0;
+    background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  /* Start it completely off-screen to the left */
+  transform: translateX(-100%); 
+  animation:skeleton-container 1.2s linear infinite;
+}
+/* ================= SKELETON END ================= */

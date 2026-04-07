@@ -24,11 +24,16 @@ export const loadCities = async () => {
 
 export const processResults = results => {
   const container = document.querySelector('.js-weather-container');
+  const cityCards = container.childElementCount ? container.children : [];
+  console.log('city cards:', cityCards);
   //container.innerHTML = '';
-  results.forEach(result => {
+  results.forEach((result, index) => {
+    console.log('index:', index)
     if (result.status === 'fulfilled') {
       const data = result.value;
-      inflateDataToCityCard(data, container);
+      const cityCard = cityCards[index];
+
+      inflateDataToCityCard(data, cityCard);
     } else {
       console.error("Failed to load city:", result.reason);
     }
@@ -45,21 +50,18 @@ export const createLoadingSkeletons = () => {
 }
 
 // Utility functions
-const inflateDataToCityCard = (data, container) => {
+const inflateDataToCityCard = (data, cityCard) => {
+  console.log('city card', cityCard);
   const { cityData, current_weather, current_weather_units } = data;
-  const template = document.getElementById('js-city-card-template');
-  const cityCardTemplate = template.content.cloneNode(true);
   const themeClass = mapWmoToTheme(current_weather.weathercode);
   const conditionDescription = getWmoDescription(current_weather.weathercode);
 
-  cityCardTemplate.querySelector('.city-card').classList.add(`city-card--${themeClass}`);
-  cityCardTemplate.querySelector('.city-card__city').textContent = cityData.name;
-  cityCardTemplate.querySelector('.city-card__country').textContent = cityData.country;
-  cityCardTemplate.querySelector('.city-card__temp').textContent = `${current_weather.temperature}${current_weather_units.temperature}`;
-  cityCardTemplate.querySelector('.city-card__condition').textContent = conditionDescription;
-  cityCardTemplate.querySelector('.city-card__wind').textContent = `Wind: ${current_weather.windspeed} ${current_weather_units.windspeed}`;
-
-  container.appendChild(cityCardTemplate);
+  cityCard.classList.add(`city-card--${themeClass}`);
+  cityCard.querySelector('.city-card__city').textContent = cityData.name;
+  cityCard.querySelector('.city-card__country').textContent = cityData.country;
+  cityCard.querySelector('.city-card__temp').textContent = `${current_weather.temperature}${current_weather_units.temperature}`;
+  cityCard.querySelector('.city-card__condition').textContent = conditionDescription;
+  cityCard.querySelector('.city-card__wind').textContent = `Wind: ${current_weather.windspeed} ${current_weather_units.windspeed}`;
 }
 
 const mapWmoToTheme = code => {

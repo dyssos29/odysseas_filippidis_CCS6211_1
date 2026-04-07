@@ -28,4 +28,4 @@ const fetchWeather = async baseUrl => {
 }
 
 createLoadingSkeletons();
-fetchWeather('https://api.test-open-meteo.com/v1/forecast');
+fetchWeather('https://api.open-meteo.com/v1/forecast');

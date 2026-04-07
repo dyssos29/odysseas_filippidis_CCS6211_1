@@ -351,6 +351,7 @@ h1, h2, h3 {
 /* ================= SKELETON START ================= */
 .skeleton {
   animation: skeleton-loading 1.2s linear infinite alternate;
+  display: block;
 }
 
 .skeleton-text {

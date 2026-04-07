@@ -26,7 +26,7 @@ export const processResults = results => {
   const container = document.querySelector('.js-weather-container');
   const cityCards = container.childElementCount ? container.children : [];
   console.log('city cards:', cityCards);
-  //container.innerHTML = '';
+
   results.forEach((result, index) => {
     console.log('index:', index)
     if (result.status === 'fulfilled') {
@@ -62,6 +62,8 @@ const inflateDataToCityCard = (data, cityCard) => {
   cityCard.querySelector('.city-card__temp').textContent = `${current_weather.temperature}${current_weather_units.temperature}`;
   cityCard.querySelector('.city-card__condition').textContent = conditionDescription;
   cityCard.querySelector('.city-card__wind').textContent = `Wind: ${current_weather.windspeed} ${current_weather_units.windspeed}`;
+
+  cityCard.setAttribute('aria-busy', 'false');
 }
 
 const mapWmoToTheme = code => {

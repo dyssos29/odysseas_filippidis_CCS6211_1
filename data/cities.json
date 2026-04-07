@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Thessaloniki",
+    "country": "Greece",
+    "lat": 40.6401,
+    "lon": 22.9444,
+    "zone": "Temperate"
+  },
+  {
+    "name": "London",
+    "country": "UK",
+    "lat": 51.5074,
+    "lon": -0.1278,
+    "zone": "Temperate"
+  },
+  {
+    "name": "Rio de Janeiro",
+    "country": "Brazil",
+    "lat": -22.9068,
+    "lon": -43.1729,
+    "zone": "Tropical"
+  },
+  {
+    "name": "Dubai",
+    "country": "United Arab Emirates",
+    "lat": 25.2048,
+    "lon": 55.2708,
+    "zone": "Arid"
+  },
+  {
+    "name": "Reykjavík",
+    "country": "Iceland",
+    "lat": 64.1466,
+    "lon": -21.9426,
+    "zone": "Polar"
+  },
+  {
+    "name": "Longyearbyen",
+    "country": "Norway",
+    "lat": 78.2232,
+    "lon": 15.6469,
+    "zone": "Polar"
+  }
+]

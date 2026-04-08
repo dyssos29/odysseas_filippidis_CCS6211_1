@@ -22,20 +22,20 @@ export const loadCities = async () => {
   return cities;
 }
 
-export const processResults = results => {
+export const processResults = (results, cities) => {
   const container = document.querySelector('.js-weather-container');
   const cityCards = container.childElementCount ? container.children : [];
-  console.log('city cards:', cityCards);
 
   results.forEach((result, index) => {
-    console.log('index:', index)
+    const cityCard = cityCards[index];
+    const cityDataSent = cities[index];
+
     if (result.status === 'fulfilled') {
       const data = result.value;
-      const cityCard = cityCards[index];
-
       inflateDataToCityCard(data, cityCard);
     } else {
-      console.error("Failed to load city:", result.reason);
+      console.error("Failed to load city:", cityDataSent.name, result.reason);
+      inflateErrorNotificationToCityCard(cityCard, cityDataSent.name);
     }
   });
 }
@@ -50,8 +50,21 @@ export const createLoadingSkeletons = () => {
 }
 
 // Utility functions
+const inflateErrorNotificationToCityCard = (cityCard, cityName) => {
+  [...cityCard.children].filter(element => {
+      if(element.classList.contains('city-card__error')) {
+        element.classList.remove('hidden');
+        element.querySelector('.city-card__error-message').textContent = `Failed to load weather data for ${cityName}`;
+        return false;
+      }
+      else {
+        return true;
+      }
+    })
+    .forEach(element => element.remove());
+}
+
 const inflateDataToCityCard = (data, cityCard) => {
-  console.log('city card', cityCard);
   const { cityData, current_weather, current_weather_units } = data;
   const themeClass = mapWmoToTheme(current_weather.weathercode);
   const conditionDescription = getWmoDescription(current_weather.weathercode);

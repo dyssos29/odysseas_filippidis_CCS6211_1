@@ -90,6 +90,9 @@ h1, h2, h3, h4, h5, h6 {
   --md-sys-color-surface-container: rgb(238 237 243);
   --md-sys-color-outline: rgb(115 119 129);
   --md-sys-color-error: rgb(186 26 26);
+  --md-sys-color-on-error: rgb(255 255 255);
+  --md-sys-color-error-container: rgb(255 218 214);
+  --md-sys-color-on-error-container: rgb(147 0 10);
 }
 
 /* DARK THEME (Automatic switch) */
@@ -105,6 +108,9 @@ h1, h2, h3, h4, h5, h6 {
     --md-sys-color-surface-container: rgb(30 32 36);
     --md-sys-color-outline: rgb(141 144 155);
     --md-sys-color-error: rgb(255 180 171);
+    --md-sys-color-on-error: rgb(105 0 5);
+    --md-sys-color-error-container: rgb(147 0 10);
+    --md-sys-color-on-error-container: rgb(255 218 214);
   }
 }
 /* ================= VARIABLES END ================= */
@@ -246,6 +252,40 @@ h1, h2, h3 {
 .city-card__temp {
   font-size: var(--font-size-xxxl);
   font-weight: 800;
+}
+
+.city-card__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--md-sys-color-error-container);
+  border: 1px solid var(--md-sys-color-error);
+  padding: 1rem;
+  height: 100%;
+}
+
+.city-card__error p {
+  color: var(--md-sys-color-on-error-container);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.city-card__error-icon {
+  width: 40%;
+  height: calc(var(--font-size-xxxl) + 1rem);
+  background-color: var(--md-sys-color-error);
+  
+  -webkit-mask-image: url("../assets/error-icon.svg");
+  mask-image: url("../assets/error-icon.svg");
+  
+  /* Ensure the mask centers and fits correctly */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
 }
 /* ================= LAYOUT END ================= */
 
@@ -400,3 +440,9 @@ h1, h2, h3 {
   animation:skeleton-container 1.2s linear infinite;
 }
 /* ================= SKELETON END ================= */
+
+/* ================= UTILITY STYLES START ================= */
+.hidden {
+  display: none;
+}
+/* ================= UTILITY STYLES END ================= */

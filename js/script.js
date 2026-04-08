@@ -17,14 +17,11 @@ const fetchWeather = async baseUrl => {
     };
     return makeHttpRequest(baseUrl, urlParams)
       .then(response => response.json())
-      .then(data => {
-        console.log("data:", data);
-        return ({ ...data, cityData: city });
-      })
+      .then(data => ({ ...data, cityData: city }));
   });
   
   const results = await Promise.allSettled(promises);
-  processResults(results);
+  processResults(results, cities);
 }
 
 createLoadingSkeletons();

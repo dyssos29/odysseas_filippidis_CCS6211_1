@@ -7,7 +7,7 @@
 
   <title>City Weather Atlas</title>
 
-  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/style.css"/>
 
   <!-- Scalable & Theme-Aware -->
   <link rel="icon" href="assets/favicon.svg" sizes="any" type="image/svg+xml">
@@ -15,6 +15,8 @@
   <link rel="icon" href="assets/favicon.ico" sizes="32x32" >
   <!-- Apple Touch Icon for iOS -->
   <link rel="apple-touch-icon" href="assets/favicon.png"/>
+
+  <script type="module" src="js/script.js" defer></script>
 </head>
 <body>
   <!-- ================= HEADER ================= -->
@@ -42,79 +44,6 @@
         <!-- Container for dynamically generated cards -->
         <div class="weather-section__container js-weather-container">
           <!-- JS will inject weather cards here -->
-          <!-- Examples of a generated City Cards -->
-          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-            <div class="city-card__header">
-              <h3 class="city-card__city">Thessaloniki</h3>
-              <p class="city-card__country">Greece</p>
-            </div>
-            
-            <div class="city-card__body">
-              <p class="city-card__temp">24°C</p>
-              <p class="city-card__condition">Clear Sky</p>
-              <p class="city-card__wind">Wind: 12 km/h</p>
-            </div>
-          </article>
-          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-            <div class="city-card__header">
-              <h3 class="city-card__city">Thessaloniki</h3>
-              <p class="city-card__country">Greece</p>
-            </div>
-            
-            <div class="city-card__body">
-              <p class="city-card__temp">24°C</p>
-              <p class="city-card__condition">Clear Sky</p>
-              <p class="city-card__wind">Wind: 12 km/h</p>
-            </div>
-          </article>
-          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-            <div class="city-card__header">
-              <h3 class="city-card__city">Thessaloniki</h3>
-              <p class="city-card__country">Greece</p>
-            </div>
-            
-            <div class="city-card__body">
-              <p class="city-card__temp">24°C</p>
-              <p class="city-card__condition">Clear Sky</p>
-              <p class="city-card__wind">Wind: 12 km/h</p>
-            </div>
-          </article>
-          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-            <div class="city-card__header">
-              <h3 class="city-card__city">Thessaloniki</h3>
-              <p class="city-card__country">Greece</p>
-            </div>
-            
-            <div class="city-card__body">
-              <p class="city-card__temp">24°C</p>
-              <p class="city-card__condition">Clear Sky</p>
-              <p class="city-card__wind">Wind: 12 km/h</p>
-            </div>
-          </article>
-          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-            <div class="city-card__header">
-              <h3 class="city-card__city">Thessaloniki</h3>
-              <p class="city-card__country">Greece</p>
-            </div>
-            
-            <div class="city-card__body">
-              <p class="city-card__temp">24°C</p>
-              <p class="city-card__condition">Clear Sky</p>
-              <p class="city-card__wind">Wind: 12 km/h</p>
-            </div>
-          </article>
-          <article class="city-card city-card--sunny"> <!-- Theme modifier added by JS -->
-            <div class="city-card__header">
-              <h3 class="city-card__city">Thessaloniki</h3>
-              <p class="city-card__country">Greece</p>
-            </div>
-            
-            <div class="city-card__body">
-              <p class="city-card__temp">24°C</p>
-              <p class="city-card__condition">Clear Sky</p>
-              <p class="city-card__wind">Wind: 12 km/h</p>
-            </div>
-          </article>
         </div>
       </section>
     </main>
@@ -154,5 +83,36 @@
     <span class="l-footer__separator"> | </span>
     <span class="l-footer__submission-date">Submission date: <time datetime="2026-04-05">April 5, 2026</time></span>
   </footer>
+
+  <!-- ================= TEMPLATE FOR CITY CARDS ================= -->
+  <template id="js-city-card-template">
+    <article class="city-card" aria-busy="true">
+      <div class="city-card__header">
+        <h3 class="city-card__city">
+          <span class="skeleton skeleton-text skeleton-text-long" aria-hidden="true"></span>
+        </h3>
+        <p class="city-card__country">
+          <span class="skeleton skeleton-text skeleton-text-medium"></span>
+        </p>
+      </div>
+      
+      <div class="city-card__body">
+        <p class="city-card__temp">
+          <span class="skeleton skeleton-temperature" aria-hidden="true"></span>
+        </p>
+        <p class="city-card__condition">
+          <span class="skeleton skeleton-text skeleton-text-short" aria-hidden="true"></span>
+        </p>
+        <p class="city-card__wind">
+          <span class="skeleton skeleton-text skeleton-text-medium" aria-hidden="true"></span>
+        </p>
+      </div>
+
+      <div class="city-card__error hidden" role="alert">
+        <div class="city-card__error-icon"></div>
+        <p class="city-card__error-message"></p>
+      </div>
+    </article>
+  </template>
 </body>
 </html>

@@ -1,0 +1,600 @@
+/* ================= RESET STYLES START ================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Enable smooth animations for non "Reduced Motion" users for height and width with keywords (auto, min-content etc) */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+	min-height: 100vh;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+/* ================= RESET STYLES END ================= */
+
+/* ================= VARIABLES START ================= */
+:root {
+  --font-size-base: clamp(1rem, 0.53vw + 0.87rem, 1.2rem);
+  --font-size-md: clamp(1.2rem, 0.64vw + 1.04rem, 1.44rem);
+  --font-size-xl: clamp(1.73rem, 0.92vw + 1.5rem, 2.07rem);
+  --font-size-xxxl: clamp(1.8rem, 2.33vw + 1.25rem, 3rem);
+
+  /* Snow Animation Variables */
+  --snow-drop-size: 2px 2px;
+  --snow-drop-color: var(--md-sys-color-on-secondary-container);
+  --snow-radial: radial-gradient(var(--snow-drop-size),var(--snow-drop-color) 100%,transparent 100%);
+
+  /* Rain Animation Variables */
+  --rain-drop-size: 1px 6px;
+  --rain-drop-color: var(--md-sys-color-tertiary-container);
+  --rain-radial: radial-gradient(var(--rain-drop-size),var(--rain-drop-color) 100%,transparent 100%);
+
+  /* Rain and Snow Animation Variables */
+  --a: -7deg;   /* control the skewing*/
+  --pattern-width: 53px;
+  --pattern-height: 55px;
+}
+
+/* MATERIAL 3 BASELINE TOKENS */
+/* LIGHT THEME (Default) */
+:root, .light {
+  --md-sys-color-primary: rgb(54 94 157);
+  --md-sys-color-on-primary: rgb(255 255 255);
+  --md-sys-color-primary-container: rgb(118 156 223);
+  --md-sys-color-on-primary-container: rgb(0 50 106);
+  --md-sys-color-secondary: rgb(81 95 121);
+  --md-sys-color-surface: rgb(249 249 255);
+  --md-sys-color-on-surface: rgb(26 28 32);
+  --md-sys-color-surface-container: rgb(238 237 243);
+  --md-sys-color-outline: rgb(115 119 129);
+  --md-sys-color-error: rgb(186 26 26);
+  --md-sys-color-on-error: rgb(255 255 255);
+  --md-sys-color-error-container: rgb(255 218 214);
+  --md-sys-color-on-error-container: rgb(147 0 10);
+  --md-sys-color-primary-fixed: rgb(214 227 255);
+  --md-sys-color-on-primary-fixed: rgb(0 27 62);
+  --md-sys-color-surface-variant: rgb(223 226 238);
+  --md-sys-color-on-surface-variant: rgb(67 71 80);
+  --md-sys-color-secondary-container: rgb(210 224 255);
+  --md-sys-color-on-secondary-container: rgb(85 99 125);
+  --md-sys-color-tertiary-container: rgb(196 134 200);
+  --md-sys-color-on-tertiary-container: rgb(81 29 88);
+}
+
+/* DARK THEME (Automatic switch) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --md-sys-color-primary: rgb(170 199 255);
+    --md-sys-color-on-primary: rgb(0 47 100);
+    --md-sys-color-primary-container: rgb(118 156 223);
+    --md-sys-color-on-primary-container: rgb(0 50 106);
+    --md-sys-color-secondary: rgb(185 199 229);
+    --md-sys-color-surface: rgb(18 19 23);
+    --md-sys-color-on-surface: rgb(226 226 232);
+    --md-sys-color-surface-container: rgb(30 32 36);
+    --md-sys-color-outline: rgb(141 144 155);
+    --md-sys-color-error: rgb(255 180 171);
+    --md-sys-color-on-error: rgb(105 0 5);
+    --md-sys-color-error-container: rgb(147 0 10);
+    --md-sys-color-on-error-container: rgb(255 218 214);
+    --md-sys-color-primary-fixed: rgb(214 227 255);
+    --md-sys-color-on-primary-fixed: rgb(0 27 62);
+    --md-sys-color-surface-variant: rgb(67 71 80);
+    --md-sys-color-on-surface-variant: rgb(195 198 210);
+    --md-sys-color-secondary-container: rgb(60 73 98);
+    --md-sys-color-on-secondary-container: rgb(171 185 214);
+    --md-sys-color-tertiary-container: rgb(196 134 200);
+    --md-sys-color-on-tertiary-container: rgb(81 29 88);
+  }
+}
+/* ================= VARIABLES END ================= */
+
+/* ================= ANIMATIONS START ================= */
+@keyframes skeleton-loading {
+  0% {
+    background-color: rgb(0 47 100);
+  }
+  100% {
+    background-color: rgb(170 199 255);
+  }
+}
+
+@keyframes skeleton-container {
+  to {
+    transform:translateX(100%);
+  }
+}
+
+@keyframes rain{
+  to {
+     transform:skew(var(--a)) translateY(var(--pattern-height)); /* Same as the height of the background-size */
+  }
+}
+
+@keyframes cloud-move {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+}
+/* ================= ANIMATIONS END ================= */
+
+/* ================= BASE STYLES START ================= */
+body {
+  padding: 1rem;
+  max-width: 90rem;       /* Constrain content on large screens (~1440px) */
+  margin: auto;
+  background-color: var(--md-sys-color-surface);
+  color: var(--md-sys-color-on-surface);
+  font-family: system-ui, sans-serif;
+  font-size: var(--font-size-base);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ================= BASE STYLES END ================= */
+
+/* ================= TYPOGRAPHY START ================= */
+h1, h2, h3 { 
+  color: var(--md-sys-color-primary);
+}
+
+.l-header__title {
+  font-size: var(--font-size-xxxl);
+  font-weight: 800;
+  letter-spacing: clamp(-0.03rem, 0.15vw + -0.07rem, 0.05rem);
+}
+
+.l-header__subtitle {
+  font-size: var(--font-size-xl);
+  color: var(--md-sys-color-secondary);
+  font-weight: 400;
+  line-height: 1.2;
+  flex-basis: 100%;
+}
+
+.about-section__title,
+.weather-section__title,
+.l-aside__title {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+}
+
+.l-aside__zone-name {
+  font-size: var(--font-size-md);
+  font-weight: 600;
+}
+/* ================= TYPOGRAPHY END ================= */
+
+/* ================= LAYOUT START ================= */
+.l-header {
+  background-color: var(--md-sys-color-surface-container);
+  border-bottom: 1px solid var(--md-sys-color-outline);
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  align-items: center;
+  padding: 1rem 0.5rem;
+}
+
+.l-header__subtitle {
+  grid-column: 1 / span 2;
+}
+
+.l-header__logo {
+  width: 3rem;
+}
+
+.l-main {
+  padding: 1rem 0.5rem;
+}
+
+.about-section {
+  margin-bottom: 1rem;
+}
+
+.l-aside {
+  background-color: var(--md-sys-color-surface-container);
+  padding: 1rem 0.5rem;
+}
+
+.l-aside__content {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr);
+}
+
+.l-aside__title {
+  margin-bottom: 0.5rem;
+}
+
+.l-aside__zone {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline);
+  padding: 0.5rem 0.5rem;
+}
+
+.l-footer {
+  text-align: center;
+  padding: 3rem 0;
+}
+
+.weather-section__title {
+  margin-bottom: 0.5rem;
+}
+
+.weather-section__container {
+  display: grid;
+  grid-template-columns: minmax(10rem, 1fr);
+  gap: 1rem;
+}
+
+.city-card {
+  background-color: var(--md-sys-color-surface-container);
+  border: 1px solid var(--md-sys-color-outline);
+  border-radius: 1.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.city-card__temp {
+  font-size: var(--font-size-xxxl);
+  font-weight: 800;
+}
+
+.city-card--sunny {
+  background: linear-gradient(var(--md-sys-color-on-primary-fixed), var(--md-sys-color-primary-fixed));
+  color: var(--md-sys-color-on-primary-fixed);
+}
+
+.city-card--sunny .city-card__city {
+  color: var(--md-sys-color-on-primary-fixed);
+}
+
+.city-card--cloudy {
+  background: linear-gradient(var(--md-sys-color-surface-variant), var(--md-sys-color-on-surface-variant));
+  color: var(--md-sys-color-on-surface-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card--cloudy .city-card__city {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.city-card--cloudy::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--md-sys-color-on-surface-variant);
+  border-radius: 50%;
+  opacity: 0.3;
+  box-shadow: 
+    -25px 10px 0 0 var(--md-sys-color-on-surface-variant), 
+    20px 10px 0 -5px var(--md-sys-color-on-surface-variant);
+  animation: cloud-move 8s ease-in-out infinite;
+}
+
+.city-card--snowy {
+  background: linear-gradient(var(--md-sys-color-secondary-container), var(--md-sys-color-on-secondary-container));
+  color: var(--md-sys-color-on-secondary-container);
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card--snowy .city-card__city {
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.city-card--snowy:before,
+.city-card--snowy:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -20%;
+  left: -20%;
+  height: calc(100% + var(--pattern-height) + 10px); /* should be bigger than (100% + var(--pattern-height))*/
+  background:
+    var(--snow-radial) -12px 3px,
+    var(--snow-radial) 17px 0,
+    var(--snow-radial) 6px  12px,
+    var(--snow-radial) 24px 23px,
+    var(--snow-radial) 39px 30px,
+    var(--snow-radial) 5px  43px;
+  background-size: var(--pattern-width) var(--pattern-height);
+  animation: rain 0.6s linear infinite;
+  transform: skew(var(--a));
+}
+.city-card--snowy:after {
+  --pattern-height: 70px;
+  --pattern-width: 61px;
+}
+
+.city-card--rainy {
+  background: linear-gradient(var(--md-sys-color-on-tertiary-container), var(--md-sys-color-tertiary-container));
+  color: var(--md-sys-color-on-tertiary-container);
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card--rainy .city-card__city {
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+.city-card--rainy:before,
+.city-card--rainy:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -20%;
+  left: -20%;
+  height: calc(100% + var(--pattern-height) + 10px); /* should be bigger than (100% + var(--pattern-height))*/
+  background:
+    var(--rain-radial) -12px 3px,
+    var(--rain-radial) 17px 0,
+    var(--rain-radial) 6px  12px,
+    var(--rain-radial) 24px 23px,
+    var(--rain-radial) 39px 30px,
+    var(--rain-radial) 5px  43px;
+  background-size: var(--pattern-width) var(--pattern-height);
+  animation: rain 0.6s linear infinite;
+  transform: skew(var(--a));
+}
+.city-card--rainy:after {
+  --pattern-height: 70px;
+  --pattern-width: 61px;
+}
+
+.city-card__error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--md-sys-color-error-container);
+  border: 1px solid var(--md-sys-color-error);
+  padding: 1rem;
+  height: 100%;
+}
+
+.city-card__error p {
+  color: var(--md-sys-color-on-error-container);
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.city-card__error-icon {
+  width: 40%;
+  height: calc(var(--font-size-xxxl) + 1rem);
+  background-color: var(--md-sys-color-error);
+  
+  -webkit-mask-image: url("../assets/error-icon.svg");
+  mask-image: url("../assets/error-icon.svg");
+  
+  /* Ensure the mask centers and fits correctly */
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+/* ================= LAYOUT END ================= */
+
+/* ================= RESPONSIVENESS START ================= */
+/* Tablet devices (sm --> ≥568px) */
+@media only screen and (min-width: 35.5em) {
+  .l-header__logo {
+    width: 5rem;
+    grid-row: 1 / span 2;
+  }
+
+  .l-header__subtitle {
+    grid-column: 2 / span 1;
+  }
+
+  .weather-section__container {
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr);
+  }
+
+  .l-aside__content {
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr);
+  }
+}
+
+/* Medium (laptop) devices (md --> ≥768px) */
+@media only screen and (min-width: 48em) {
+  .l-header {
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+
+  .l-main {
+    padding: 2rem 2.5rem;
+  }
+
+  .about-section {
+    margin-bottom: 2rem;
+  }
+
+  .about-section__title {
+    margin-bottom: 0.5rem;
+  }
+
+  .weather-section__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .weather-section__container {
+    grid-template-columns: minmax(10rem, 1fr) minmax(10rem, 1fr) minmax(10rem, 1fr);
+  }
+
+  .city-card {
+    padding: 2rem;
+  }
+
+  .l-aside {
+    padding: 2rem 1.5rem;
+  }
+
+  .l-aside__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .l-aside__content {
+    grid-template-columns: minmax(0rem, 1fr) minmax(0rem, 1fr) minmax(0rem, 1fr) minmax(0rem, 1fr);
+  }
+
+  .l-aside__zone {
+    padding: 1.5rem 1.5rem;
+  }
+}
+
+/* XLarge devices (xl --> ≥1280px) */
+@media only screen and (min-width: 80em) {
+  .l-header__logo {
+    width: 7rem;
+  }
+  
+  .l-main {
+    /* This allows the element's children to appear as if they were direct children of the element's parent */
+    display: contents; 
+  }
+
+  .l-main-grid {
+    display: grid;
+    grid-template-columns: minmax(20rem, 3fr) minmax(20rem, 1fr);
+    gap: 2rem;
+    max-width: 90%;
+    margin: auto;
+  }
+
+  .about-section {
+    grid-column: 1 / span 2;
+    margin-top: 2rem;
+  }
+
+  .l-aside__content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+/* ================= RESPONSIVENESS END ================= */
+
+/* ================= SKELETON START ================= */
+.skeleton {
+  animation: skeleton-loading 1.2s linear infinite alternate;
+  display: block;
+}
+
+.skeleton-text {
+  height: 1.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-temperature {
+  width: 40%;
+  height: 3.5rem;
+  border-radius: 0.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.skeleton-text-short {
+  width: 30%;
+}
+
+.skeleton-text-medium {
+  width: 50%;
+}
+
+.skeleton-text-long {
+  width: 80%;
+}
+
+.city-card:has(.skeleton) {
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card:has(.skeleton)::after{
+  content:"";
+  position:absolute;
+  inset:0;
+    background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.5) 60%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  /* Start it completely off-screen to the left */
+  transform: translateX(-100%); 
+  animation:skeleton-container 1.2s linear infinite;
+}
+/* ================= SKELETON END ================= */
+
+/* ================= UTILITY STYLES START ================= */
+.hidden {
+  display: none;
+}
+/* ================= UTILITY STYLES END ================= */

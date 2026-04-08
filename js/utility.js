@@ -66,27 +66,104 @@ const inflateErrorNotificationToCityCard = (cityCard, cityName) => {
 
 const inflateDataToCityCard = (data, cityCard) => {
   const { cityData, current_weather, current_weather_units } = data;
-  const themeClass = mapWmoToTheme(current_weather.weathercode);
-  const conditionDescription = getWmoDescription(current_weather.weathercode);
+  const wmoMappingData = getWmoMappingData(current_weather.weathercode);
 
-  cityCard.classList.add(`city-card--${themeClass}`);
+  cityCard.classList.add(`city-card--${wmoMappingData.themeClass}`);
   cityCard.querySelector('.city-card__city').textContent = cityData.name;
   cityCard.querySelector('.city-card__country').textContent = cityData.country;
   cityCard.querySelector('.city-card__temp').textContent = `${current_weather.temperature}${current_weather_units.temperature}`;
-  cityCard.querySelector('.city-card__condition').textContent = conditionDescription;
+  cityCard.querySelector('.city-card__condition').textContent = wmoMappingData.description;
   cityCard.querySelector('.city-card__wind').textContent = `Wind: ${current_weather.windspeed} ${current_weather_units.windspeed}`;
 
   cityCard.setAttribute('aria-busy', 'false');
 }
 
-const mapWmoToTheme = code => {
-  if (code <= 3) return 'sunny';
-  if (code <= 48) return 'cloudy';
-  if (code <= 67) return 'rainy';
-  return 'snowy';
-}
-
-const getWmoDescription = code => {
-  const codes = { 0: "Clear Sky", 1: "Mainly Clear", 61: "Slight Rain" }; // Add more as needed
-  return codes[code] || "Variable Conditions";
+const getWmoMappingData = code => {
+  switch (code) {
+    case 0:
+      return {
+        description: "Clear sky",
+        themeClass: "sunny"
+      };
+    case 1:
+    case 2:
+    case 3:
+      return {
+        description: "Mainly clear, partly cloudy, and overcast",
+        themeClass: "sunny"
+      };
+    case 45:
+    case 48:
+      return {
+        description: "Fog and depositing rime fog",
+        themeClass: "cloudy"
+      };
+    case 51:
+    case 53:
+    case 55:
+      return {
+        description: "Drizzle: Light, moderate, and dense intensity",
+        themeClass: "cloudy"
+      };
+    case 56:
+    case 57:
+      return {
+        description: "Freezing Drizzle: Light and dense intensity",
+        themeClass: "snowy"
+      };
+    case 61:
+    case 63:
+    case 65:
+      return {
+        description: "Rain: Slight, moderate and heavy intensity",
+        themeClass: "rainy"
+      };
+    case 66:
+    case 67:
+      return {
+        description: "Freezing Rain: Light and heavy intensity",
+        themeClass: "rainy"
+      };
+    case 71:
+    case 73:
+    case 75:
+      return {
+        description: "Snow fall: Slight, moderate, and heavy intensity",
+        themeClass: "snowy"
+      };
+    case 77:
+      return {
+        description: "Snow grains",
+        themeClass: "snowy"
+      };
+    case 80:
+    case 81:
+    case 82:
+      return {
+        description: "Rain showers: Slight, moderate, and violent",
+        themeClass: "rainy"
+      };
+    case 85:
+    case 86:
+      return {
+        description: "Snow showers slight and heavy",
+        themeClass: "snowy"
+      };
+    case 95:
+      return {
+        description: "Thunderstorm: Slight or moderate",
+        themeClass: "rainy"
+      };
+    case 96:
+    case 99:
+      return {
+        description: "Thunderstorm with slight and heavy hail",
+        themeClass: "rainy"
+      };
+    default:
+      return {
+        description: "Unknown weather conditions",
+        themeClass: "sunny"
+      };
+  }
 }

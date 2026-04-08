@@ -75,6 +75,21 @@ h1, h2, h3, h4, h5, h6 {
   --font-size-md: clamp(1.2rem, 0.64vw + 1.04rem, 1.44rem);
   --font-size-xl: clamp(1.73rem, 0.92vw + 1.5rem, 2.07rem);
   --font-size-xxxl: clamp(1.8rem, 2.33vw + 1.25rem, 3rem);
+
+  /* Snow Animation Variables */
+  --snow-drop-size: 2px 2px;
+  --snow-drop-color: var(--md-sys-color-on-secondary-container);
+  --snow-radial: radial-gradient(var(--snow-drop-size),var(--snow-drop-color) 100%,transparent 100%);
+
+  /* Rain Animation Variables */
+  --rain-drop-size: 1px 6px;
+  --rain-drop-color: var(--md-sys-color-tertiary-container);
+  --rain-radial: radial-gradient(var(--rain-drop-size),var(--rain-drop-color) 100%,transparent 100%);
+
+  /* Rain and Snow Animation Variables */
+  --a: -7deg;   /* control the skewing*/
+  --pattern-width: 53px;
+  --pattern-height: 55px;
 }
 
 /* MATERIAL 3 BASELINE TOKENS */
@@ -93,6 +108,14 @@ h1, h2, h3, h4, h5, h6 {
   --md-sys-color-on-error: rgb(255 255 255);
   --md-sys-color-error-container: rgb(255 218 214);
   --md-sys-color-on-error-container: rgb(147 0 10);
+  --md-sys-color-primary-fixed: rgb(214 227 255);
+  --md-sys-color-on-primary-fixed: rgb(0 27 62);
+  --md-sys-color-surface-variant: rgb(223 226 238);
+  --md-sys-color-on-surface-variant: rgb(67 71 80);
+  --md-sys-color-secondary-container: rgb(210 224 255);
+  --md-sys-color-on-secondary-container: rgb(85 99 125);
+  --md-sys-color-tertiary-container: rgb(196 134 200);
+  --md-sys-color-on-tertiary-container: rgb(81 29 88);
 }
 
 /* DARK THEME (Automatic switch) */
@@ -111,6 +134,14 @@ h1, h2, h3, h4, h5, h6 {
     --md-sys-color-on-error: rgb(105 0 5);
     --md-sys-color-error-container: rgb(147 0 10);
     --md-sys-color-on-error-container: rgb(255 218 214);
+    --md-sys-color-primary-fixed: rgb(214 227 255);
+    --md-sys-color-on-primary-fixed: rgb(0 27 62);
+    --md-sys-color-surface-variant: rgb(67 71 80);
+    --md-sys-color-on-surface-variant: rgb(195 198 210);
+    --md-sys-color-secondary-container: rgb(60 73 98);
+    --md-sys-color-on-secondary-container: rgb(171 185 214);
+    --md-sys-color-tertiary-container: rgb(196 134 200);
+    --md-sys-color-on-tertiary-container: rgb(81 29 88);
   }
 }
 /* ================= VARIABLES END ================= */
@@ -128,6 +159,21 @@ h1, h2, h3, h4, h5, h6 {
 @keyframes skeleton-container {
   to {
     transform:translateX(100%);
+  }
+}
+
+@keyframes rain{
+  to {
+     transform:skew(var(--a)) translateY(var(--pattern-height)); /* Same as the height of the background-size */
+  }
+}
+
+@keyframes cloud-move {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
   }
 }
 /* ================= ANIMATIONS END ================= */
@@ -252,6 +298,112 @@ h1, h2, h3 {
 .city-card__temp {
   font-size: var(--font-size-xxxl);
   font-weight: 800;
+}
+
+.city-card--sunny {
+  background: linear-gradient(var(--md-sys-color-on-primary-fixed), var(--md-sys-color-primary-fixed));
+  color: var(--md-sys-color-on-primary-fixed);
+}
+
+.city-card--sunny .city-card__city {
+  color: var(--md-sys-color-on-primary-fixed);
+}
+
+.city-card--cloudy {
+  background: linear-gradient(var(--md-sys-color-surface-variant), var(--md-sys-color-on-surface-variant));
+  color: var(--md-sys-color-on-surface-variant);
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card--cloudy .city-card__city {
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.city-card--cloudy::after {
+  content: "";
+  position: absolute;
+  top: 15%;
+  right: 10%;
+  width: 2.5rem;
+  height: 2.5rem;
+  background: var(--md-sys-color-on-surface-variant);
+  border-radius: 50%;
+  opacity: 0.3;
+  box-shadow: 
+    -25px 10px 0 0 var(--md-sys-color-on-surface-variant), 
+    20px 10px 0 -5px var(--md-sys-color-on-surface-variant);
+  animation: cloud-move 8s ease-in-out infinite;
+}
+
+.city-card--snowy {
+  background: linear-gradient(var(--md-sys-color-secondary-container), var(--md-sys-color-on-secondary-container));
+  color: var(--md-sys-color-on-secondary-container);
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card--snowy .city-card__city {
+  color: var(--md-sys-color-on-secondary-container);
+}
+
+.city-card--snowy:before,
+.city-card--snowy:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -20%;
+  left: -20%;
+  height: calc(100% + var(--pattern-height) + 10px); /* should be bigger than (100% + var(--pattern-height))*/
+  background:
+    var(--snow-radial) -12px 3px,
+    var(--snow-radial) 17px 0,
+    var(--snow-radial) 6px  12px,
+    var(--snow-radial) 24px 23px,
+    var(--snow-radial) 39px 30px,
+    var(--snow-radial) 5px  43px;
+  background-size: var(--pattern-width) var(--pattern-height);
+  animation: rain 0.6s linear infinite;
+  transform: skew(var(--a));
+}
+.city-card--snowy:after {
+  --pattern-height: 70px;
+  --pattern-width: 61px;
+}
+
+.city-card--rainy {
+  background: linear-gradient(var(--md-sys-color-on-tertiary-container), var(--md-sys-color-tertiary-container));
+  color: var(--md-sys-color-on-tertiary-container);
+  position: relative;
+  overflow: hidden;
+}
+
+.city-card--rainy .city-card__city {
+  color: var(--md-sys-color-on-tertiary-container);
+}
+
+.city-card--rainy:before,
+.city-card--rainy:after{
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -20%;
+  left: -20%;
+  height: calc(100% + var(--pattern-height) + 10px); /* should be bigger than (100% + var(--pattern-height))*/
+  background:
+    var(--rain-radial) -12px 3px,
+    var(--rain-radial) 17px 0,
+    var(--rain-radial) 6px  12px,
+    var(--rain-radial) 24px 23px,
+    var(--rain-radial) 39px 30px,
+    var(--rain-radial) 5px  43px;
+  background-size: var(--pattern-width) var(--pattern-height);
+  animation: rain 0.6s linear infinite;
+  transform: skew(var(--a));
+}
+.city-card--rainy:after {
+  --pattern-height: 70px;
+  --pattern-width: 61px;
 }
 
 .city-card__error {
